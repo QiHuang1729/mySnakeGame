@@ -1,8 +1,9 @@
 /**
- *	<Describe the SnakeBoard here>
+ *	The snake board stores the characters in each position in the grid. 
+ * 	The 
  *
- *	@author	
- *	@since	
+ *	@author	Qi Huang
+ *	@since	5/7/2024
  */
 public class SnakeBoard {
 	
@@ -21,6 +22,21 @@ public class SnakeBoard {
 	 *	Print the board to the screen.
 	 */
 	public void printBoard(Snake snake, Coordinate target) {
+		Coordinate thisCoord = null;
+		
+		for (int r = 0; r < board.length; r++) {
+			for (int c = 0; c < board[r].length; c++) {
+				thisCoord = new Coordinate(r, c);
+				if (snake.indexOf(thisCoord) == 0) {
+					board[r][c] = '@';
+				} else if (snake.indexOf(thisCoord) != -1) {
+					board[r][c] = '*';
+				} else if (thisCoord.equals(target)) {
+					board[r][c] = '+';
+				}
+			}
+		}
+		
 		printBorder();
 		for (int r = 0; r < board.length; r++) {
 			System.out.print("|");
@@ -53,6 +69,14 @@ public class SnakeBoard {
 	
 	public int getWidth() {
 		return board[0].length;
+	}
+	
+	/** Gets the character at a specific coordinate 
+	 * 	
+	 * 	Precondition: (row, col) is a valid location in the board
+	 * */ 
+	public char getCharAt(int row, int col) {
+		return board[row][col];
 	}
 	
 	/********************************************************/

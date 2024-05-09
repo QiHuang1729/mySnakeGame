@@ -2,8 +2,8 @@
  *	A SinglyLinkedList of Coordinate objects representing
  *	a snake on a two-dimensional grid.
  *
- *	@author	
- *	@since	
+ *	@author	Qi Huang
+ *	@since	5/7/2024
  */
 public class Snake extends SinglyLinkedList<Coordinate> {
 	
